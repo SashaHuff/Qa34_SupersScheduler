@@ -30,5 +30,10 @@ public class LoginScreen extends BaseScreen{
         loginBtn.click();
         return new HomeScreen(driver);
     }
+    public WizardScreen clickRegBtn(){
+        driver.hideKeyboard();
+        loginBtn.click();
+        return new WizardScreen(driver);
+    }
 
 }
