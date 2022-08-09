@@ -2,6 +2,8 @@ package screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import models.User;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginScreen extends BaseScreen{
@@ -14,6 +16,7 @@ public class LoginScreen extends BaseScreen{
     MobileElement passwordEditText;
     @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/login_btn']")
     MobileElement loginBtn;
+
 
     public LoginScreen fillEmail(String email){
         should(emailEditText,10);
@@ -35,5 +38,21 @@ public class LoginScreen extends BaseScreen{
         loginBtn.click();
         return new WizardScreen(driver);
     }
+    public HomeScreen complexLogin(User user){
+        should(emailEditText,10);
+        type(emailEditText, user.getEmail());
+        type(passwordEditText, user.getPassword());
+        clickBtnLogin();
+        return new HomeScreen(driver);
+    }
+    public LoginScreen clearEmailAndPassword(){
+        emailEditText.click();
+        emailEditText.clear();
+        passwordEditText.click();
+        passwordEditText.clear();
+        return this;
+    }
+
+
 
 }

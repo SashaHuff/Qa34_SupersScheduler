@@ -11,10 +11,15 @@ public class HomeScreen  extends BaseScreen{
     }
     @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/fab_main']")
     MobileElement fabAdd;
-    @FindBy(xpath = "//*[@content-desc='Open'")
+    @FindBy(xpath = "//*[@content-desc='Open']")
     MobileElement burgerMenu;
     @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/nav_fr_logout']")
     MobileElement logOutBtn;
+    @FindBy(xpath = "//*[@resource-id='android:id/button1']")
+    MobileElement errorOk;
+    @FindBy(xpath = "//*[@resource-id='android:id/message']")
+    MobileElement errorMsg;
+
 
     public boolean ifFabAddPresent(){
         // check if + appears
@@ -35,4 +40,20 @@ public class HomeScreen  extends BaseScreen{
         Assert.assertTrue(fabAdd.isDisplayed());
         return this;
     }
+    public boolean checkErrorMessage(){
+        should(errorMsg,10);
+        return errorMsg.isDisplayed();
+
+    }
+    public HomeScreen checkErrorMSGAssert(){
+        Assert.assertTrue(checkErrorMessage());
+        return this;
+    }
+    public HomeScreen confirmError(){
+        should(errorOk,10);
+        errorOk.click();
+    return  this;
+    }
+
+
 }

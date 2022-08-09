@@ -1,6 +1,7 @@
 package tests;
 
 import manager.Configuration;
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -29,28 +30,36 @@ public class LoginTests extends Configuration {
     }
     @Test
     public void loginSuccessModel(){
-        //email, password, clik btn - one method
-     /*   User user = new User
-        boolean addPresent = new LoginScreen(driver)
-                .complexLogin(User user)//method
-                .ifFabAddPresent();
-        Assert.assertTrue(addPresent);
+     User user = User.builder()
+             .email("huff@gmail.com")
+             .password("Hhuff1234$")
+             .build();
+    boolean addPresent = new LoginScreen(driver)
+             .complexLogin(user)
+             .ifFabAddPresent();
+     Assert.assertTrue(addPresent);
 
-      */
-    }
+       }
     @Test
     public void loginNegativeModelWrongPassword(){
-       /* boolean addPresent = new LoginScreen(driver)
-                .complexLogin(User user)
-                .checkErrorMessage("Wrong email or password")
-                .confirmErrorMSG();
-        */
+        User user = User.builder()
+                .email("huff@gmail.com")
+                .password("Huff1234$")
+                .build();
+        new LoginScreen(driver)
+                .complexLogin(user)
+               .checkErrorMSGAssert()
+                .confirmError();
+      new LoginScreen(driver).clearEmailAndPassword();
+        driver.hideKeyboard();
     }
     @AfterMethod
     public void postCondition(){
         //logOut
         new HomeScreen(driver)
-                .openMenu()
-                .logOut();
-    }
+            .openMenu()
+            .logOut();
+        }
+
+    
 }
