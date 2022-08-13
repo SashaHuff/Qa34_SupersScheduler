@@ -47,11 +47,10 @@ public class LoginTests extends Configuration {
                 .password("Huff1234$")
                 .build();
         new LoginScreen(driver)
-                .complexLogin(user)
+                .complexLoginNegative(user)
                .checkErrorMSGAssert()
                 .confirmError();
-      new LoginScreen(driver).clearEmailAndPassword();
-        driver.hideKeyboard();
+
     }
     @AfterMethod
     public void postCondition(){
@@ -61,5 +60,5 @@ public class LoginTests extends Configuration {
             .logOut();
         }
 
-    
+
 }
