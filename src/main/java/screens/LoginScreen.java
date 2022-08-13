@@ -71,13 +71,7 @@ public class LoginScreen extends BaseScreen{
         errorOk.click();
         return  this;
     }
-    public LoginScreen clearEmailAndPassword(){
-        emailEditText.click();
-        emailEditText.clear();
-        passwordEditText.click();
-        passwordEditText.clear();
-        return this;
-    }
+
 
 
 

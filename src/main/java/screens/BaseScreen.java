@@ -3,6 +3,7 @@ package screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,6 +40,9 @@ public class BaseScreen {
         }catch (Exception ex){
             return false;
         }
+    }
+    public boolean isElementPresent(By locator){
+        return driver.findElements(locator).size()>0;
     }
 
 

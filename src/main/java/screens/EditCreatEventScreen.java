@@ -3,7 +3,10 @@ package screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import models.Event;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class EditCreatEventScreen extends BaseScreen{
     public EditCreatEventScreen(AppiumDriver<MobileElement> driver) {
@@ -24,6 +27,8 @@ public class EditCreatEventScreen extends BaseScreen{
     MobileElement wageSave;
     @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/info_save_btn']")
     MobileElement confirmCreation;
+    @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/delete_menu']")
+    MobileElement deleteBtn;
 
     public HomeScreen createNewEvent(Event event){
         should(title,5);
@@ -46,4 +51,10 @@ public class EditCreatEventScreen extends BaseScreen{
 
         return new HomeScreen(driver);
     }
+    public HomeScreen deleteEvent(){
+        should(deleteBtn,5);
+        deleteBtn.click();
+        return new HomeScreen(driver);
+    }
+
 }
