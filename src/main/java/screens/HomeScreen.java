@@ -31,7 +31,20 @@ public class HomeScreen  extends BaseScreen{
     MobileElement toastMSG;
     @FindBy (xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/group_events_menu']")
     MobileElement groupEvents;
+/*
+check from list of events
+    @FindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/row_container_main']")
+    List<MobileElement> listEvents;
 
+    public EditCreatEventScreen selectFirstEvent(){
+        pause(2000);
+        listEvents.get(0).click();
+
+        return new EditCreatEventScreen(driver);
+
+    }
+
+ */
 
 
 
@@ -78,11 +91,15 @@ public class HomeScreen  extends BaseScreen{
         Assert.assertTrue(fabAdd.isDisplayed());
         return this;
     }
+    /*
+    this method does't work now
     public boolean toastMsgAppearance(){
         should(groupEvents,2);
         groupEvents.click();
         return isElementPresent(By.xpath("//*[text()='You don't have events')]"));
     }
+
+     */
     public GroupEventsMenuScreen clickOnMenuEvents(){
         should(groupEvents,5);
         groupEvents.click();

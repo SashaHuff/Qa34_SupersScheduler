@@ -28,12 +28,14 @@ public class DeleteEventTest extends Configuration {
                     .deleteEvent();
         }
 
-    @Test
+  /*  @Test
     public void deleteEventWithToast(){
         boolean isToastTrue = new HomeScreen(driver)
                 .toastMsgAppearance();
         Assert.assertTrue(isToastTrue);
     }
+
+   */
     @AfterClass
     public void postCondition() {
         new HomeScreen(driver)

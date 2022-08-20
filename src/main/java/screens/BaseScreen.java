@@ -45,5 +45,15 @@ public class BaseScreen {
         return driver.findElements(locator).size()>0;
     }
 
+    public void pause (int time){
+
+
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
